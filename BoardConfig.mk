@@ -25,24 +25,24 @@ TARGET_CPU_VARIANT := cortex-a53
 TARGET_BOOTLOADER_BOARD_NAME := msm8916
 
 TARGET_PREBUILT_KERNEL := device/lge/h631/kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=g4stylusn user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 vmalloc=508m androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=g4stylusn user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 vmalloc=508m
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x20000000 --tags_offset 0x00000100 --dt device/lge/h631/dt.img
+COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
-# fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE := 25165824
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 25165824
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2684354560
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 11676942336
 BOARD_FLASH_BLOCK_SIZE := 131072
+TARGET_USERIMAGES_USE_EXT4 := true
 
 # TWRP
 TW_THEME := portrait_hdpi
 BOARD_HAS_NO_REAL_SDCARD := true
-BOARD_SUPPRESS_SECURE_ERASE := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
